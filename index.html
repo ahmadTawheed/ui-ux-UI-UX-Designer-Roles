@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Tawheed - أدوار المصممين (UI/UX)</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #9370db;
+            --light-color: #e6d7ff;
+            --dark-color: #4b0082;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            color: var(--text-color);
+            background-color: #f9f7ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 4px 12px rgba(106, 13, 173, 0.2);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-text) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(106, 13, 173, 0.2);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-weight: 600;
+            padding: 15px 20px;
+            border: none;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .list-group-item {
+            border: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(106, 13, 173, 0.1);
+        }
+        
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+        
+        .list-group-item i {
+            color: var(--primary-color);
+            margin-left: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(106, 13, 173, 0.3);
+        }
+        
+        .btn-outline-primary {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .bg-light-section {
+            background-color: #f3ebff;
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 15px rgba(106, 13, 173, 0.2);
+        }
+        
+        .quiz-container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .quiz-options {
+            margin-bottom: 30px;
+        }
+        
+        .quiz-option {
+            background-color: #f9f7ff;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--secondary-color);
+            background-color: #f3ebff;
+        }
+        
+        .quiz-option.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(106, 13, 173, 0.1);
+        }
+        
+        .quiz-option.correct {
+            border-color: #28a745;
+            background-color: rgba(40, 167, 69, 0.1);
+        }
+        
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.05), rgba(147, 112, 219, 0.1));
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .result-score {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--light-color);
+            transform: translateY(-5px);
+        }
+        
+        .next-site-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 30px;
+            padding: 15px 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .next-site-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+            color: var(--primary-color);
+        }
+        
+        .example-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(106, 13, 173, 0.2);
+        }
+        
+        .example-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .example-body {
+            padding: 20px;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .difficulty-easy {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .difficulty-medium {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .difficulty-hard {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-pencil-ruler ms-2"></i> Ahmed Tawheed
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#intro">مقدمة</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ui-designer">مصمم UI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ux-designer">مصمم UX</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ux-research">بحث UX</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ui-research">بحث UI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#collaboration">التعاون</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#disadvantages">عيوب الدمج</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#principles">المبادئ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#quiz">اختبار</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content" data-aos="fade-right">
+                        <h1 class="hero-title">أدوار المصممين (UI/UX)</h1>
+                        <p class="hero-subtitle">دليل شامل لأدوار المصممين، طرق البحث، التآزر بينهم، مبادئ كل مجال، ومزايا/عيوب الدمج بينهم</p>
+                        <a href="#intro" class="btn btn-light btn-lg">
+                            ابدأ التعلم <i class="fas fa-arrow-left ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center" data-aos="fade-left">
+                        <i class="fas fa-users-cog" style="font-size: 15rem; opacity: 0.7;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">مقدمة عن أدوار المصممين</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <h4 class="text-center mb-3" style="color: var(--primary-color);">UI Designer</h4>
+                                    <p>مصمم الواجهة مسؤول عن الشكل البصري وكيفية تفاعل المستخدم مع واجهة المنتج — الأزرار، الألوان، الطباعة، المسافات، الأيقونات، الحركات البصرية (animations) والتفاصيل النهائية التي "بتجمّل" وتسهّل الاستخدام.</p>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <h4 class="text-center mb-3" style="color: var(--primary-color);">UX Designer</h4>
+                                    <p>مصمم الـ UX مسؤول عن فهم المستخدمين وحل مشاكلهم عبر تصميم تجارب منطقية ومفيدة — يشتغل على البنية، التدفق، البحث، الاختبار، والمفاهيم التي تجعل المنتج مفيدًا.</p>
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle ms-2"></i>
+                                <strong>الفرق الأساسي:</strong> UX يركز على تجربة المستخدم الشاملة والمنطق، بينما UI يركز على الجوانب المرئية والتفاعلية. كلاهما متكامل لنجاح المنتج.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Designer Roles Section -->
+    <section id="ui-designer" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Roles and responsibilities of UI Designer</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">المسؤوليات الأساسية</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>تصميم واجهات عالية الدقة (high-fidelity mockups)</li>
+                                <li>إنشاء نظام تصميم (Design System) أو مراعاة استخدامه</li>
+                                <li>اختيار ألوان، خطوط، أيقونات، صور، ظل، مسافات</li>
+                                <li>إعداد مكونات قابلة لإعادة الاستخدام (components)</li>
+                                <li>عمل بروتوتايب تفاعلي (Figma/Sketch/Adobe XD)</li>
+                                <li>تسليم الأصول للمطورين: specs، CSS snippets، SVGs، مكتبات</li>
+                                <li>التعامل مع التصميم المرئي لسهولة الاستخدام (visual affordance)</li>
+                                <li>ضمان الاتساق وعمل مراجعات (QA for pixel parity)</li>
+                                <li>تطبيق مبادئ الوصولية (accessibility) بصريًا (contrast, font-size)</li>
+                                <li>التعاون مع UX وFront-end لضمان التنفيذ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Deliverables شائعة</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Style guide / Design tokens</li>
+                                <li>Component library (buttons, inputs, cards)</li>
+                                <li>High-fidelity screens & interactive prototypes</li>
+                                <li>Icon sets, illustrations, animations</li>
+                                <li>Spec sheets (spacing, type scale, breakpoints)</li>
+                            </ul>
+                            
+                            <div class="alert alert-primary mt-3">
+                                <i class="fas fa-lightbulb ms-2"></i>
+                                <strong>دوره في مجال UI/UX:</strong> مصمم الـ UI هو اللي "بيجعل التصميم يلمع" بصريًا ويخلق الانطباع الأول. دوره تكاملي: يا بيطبّق مبادئ الـ UX في لفة بصرية، يا بيقدّم حلول تعرض المعلومات بطريقة واضحة وسهلة.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mt-5 mb-4" data-aos="fade-up">5 أمثلة توضيحية (متدرجة الصعوبة)</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1 — سهل</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-easy">سهل</span>
+                            <p><strong>تحديد نظام ألوان لصفحة تسجيل دخول</strong></p>
+                            <p>اختار لونين أساسيين، لون خلفية، ولون زر call-to-action، وتأكد من تباين النص مع الخلفية (WCAG AA).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2 — سهل-متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">سهل-متوسط</span>
+                            <p><strong>تصميم زر ذو حالة hover/active/disabled</strong></p>
+                            <p>ارسم حالات الزر الثلاثة واطبع قيم الظل والتدرج وحجم ال-padding.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3 — متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">متوسط</span>
+                            <p><strong>إنشاء بطاقة منتج قابلة لإعادة الاستخدام</strong></p>
+                            <p>حدّد مكان الصورة، العنوان، السعر، زر إضافة للسلة، واستجابات لحالات نص طويلة.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4 — صعب</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب</span>
+                            <p><strong>تصميم نافذة منبثقة (modal) مع حركة دخول وخروج</strong></p>
+                            <p>فكر في الفوكس، فتح/إغلاق، وكيفية التعامل مع التركيز لسهولة الوصول.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5 — صعب جدًا</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب جدًا</span>
+                            <p><strong>بناء صفحة dashboard مع نظام شبكي responsive</strong></p>
+                            <p>تعريف tokens للألوان والحجوم، وإنشاء مكونات قابلة لإعادة استخدام.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UX Designer Roles Section -->
+    <section id="ux-designer" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Roles and responsibilities of UX Designer</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">المسؤوليات الأساسية</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>إجراء أبحاث المستخدمين (qualitative & quantitative)</li>
+                                <li>بناء Personas، user journeys، user flows</li>
+                                <li>عمل wireframes (low/medium fidelity) لتجربة المستخدم</li>
+                                <li>تنفيذ اختبارات قابلية الاستخدام (usability testing) وتحليل النتائج</li>
+                                <li>تنظيم المعلومات (Information Architecture)</li>
+                                <li>إجراء تحليلات، اختبارات A/B، ومقاييس نجاح (KPIs)</li>
+                                <li>كتابة نماذج سلوك أو سيناريوهات استخدام</li>
+                                <li>التعاون مع المنتج، الـ UI، والمطورين لتطبيق الحلول</li>
+                                <li>مراعاة الوصولية والصلاحية (accessibility & ethical design)</li>
+                                <li>قياس وتحليل التفاعل بعد الإطلاق</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Deliverables شائعة</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Research reports, personas, user journeys</li>
+                                <li>Wireframes, low-fi prototypes</li>
+                                <li>Usability test scripts & reports</li>
+                                <li>Information architecture diagrams, sitemaps</li>
+                                <li>Metrics dashboards, A/B test results</li>
+                            </ul>
+                            
+                            <div class="alert alert-primary mt-3">
+                                <i class="fas fa-lightbulb ms-2"></i>
+                                <strong>دوره في مجال UI/UX:</strong> مصمم الـ UX هو باختصار "المهندس الاجتماعي" اللي بيفهم الناس ويصنع الحلول اللي بتحل مشاكلهم. في المشروع، UX يحدد الـ WHY والـ WHAT، وUI يشتغل على الـ HOW.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mt-5 mb-4" data-aos="fade-up">5 أمثلة توضيحية (متدرجة)</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1 — سهل</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-easy">سهل</span>
+                            <p><strong>عمل استبيان صغير لقياس رضى المستخدم</strong></p>
+                            <p>كتابة 5 أسئلة وتوزيعها للحصول على بيانات أولية.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2 — سهل-متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">سهل-متوسط</span>
+                            <p><strong>مقابلة مستخدمين (5 مقابلات) عن تجربة التسجيل</strong></p>
+                            <p>تسجيل ملاحظات pain points وتصنيفهم.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3 — متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">متوسط</span>
+                            <p><strong>إجراء card sorting لتنظيم قائمة الموقع</strong></p>
+                            <p>الحصول على هيكل عام للمحتوى.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4 — صعب</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب</span>
+                            <p><strong>اختبار قابلية استخدام متوسط مع سيناريوهات</strong></p>
+                            <p>تسجيل الوقت لاكمال مهمة واستخراج نقاط احتكاك وتحليلها.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5 — صعب جدًا</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب جدًا</span>
+                            <p><strong>تحليل بيانات استخدام (analytics) + تصميم تجربة جديدة</strong></p>
+                            <p>ربط السلوك بالتصميم واقتراح تغييرات تقلل churn.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UX Research Section -->
+    <section id="ux-research" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Research techniques in UX</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="mb-4">البحث في UX هو العمود الفقري لتصميم يعمل فعلاً. ينقسم لبحث كمي (بيانات) ونوعي (مقابلات وسلوك). نستخدم تقنيات متعددة عشان نحصل على صورة واضحة.</p>
+                            
+                            <h4 class="mb-3">تقنيات شائعة</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>المقابلات الشخصية (User interviews)</li>
+                                        <li>الاستبيانات (Surveys)</li>
+                                        <li>الاستدلال السياقي (Contextual inquiry)</li>
+                                        <li>اختبارات قابلية الاستخدام (Usability testing)</li>
+                                        <li>Card sorting</li>
+                                        <li>Tree testing</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Diary studies</li>
+                                        <li>Analytics</li>
+                                        <li>Heatmaps & session recordings</li>
+                                        <li>A/B testing</li>
+                                        <li>Heuristic evaluation</li>
+                                        <li>Competitive analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-warning mt-3">
+                                <i class="fas fa-exclamation-triangle ms-2"></i>
+                                <strong>نصائح مهمة:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>ابدأ دائمًا بسؤال واضح: ماذا تريد أن تعرف؟</li>
+                                    <li>اخلط طرق كمية ونوعية.</li>
+                                    <li>لا تفترض النتائج — اختبرها.</li>
+                                    <li>احفظ الملاحظات المنظمة قابلة للبحث (coding).</li>
+                                    <li>كرّر البحث بعد التغييرات (iteration).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mt-5 mb-4" data-aos="fade-up">5 أمثلة عملية/توضيحية</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1 — سهل</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-easy">سهل</span>
+                            <p><strong>survey لمستخدمين بعد تجربة نسخة بيتا</strong></p>
+                            <p>8 أسئلة لتقيم الرضا.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2 — سهل-متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">سهل-متوسط</span>
+                            <p><strong>5 مقابلات مع مستخدمين محتملين عن مشكلة الدفع</strong></p>
+                            <p>استخراج pain points.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3 — متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">متوسط</span>
+                            <p><strong>card sorting مفتوح لمعرفة التصنيف الطبيعي للمحتوى</strong></p>
+                            <p>استخدامه لبناء الـ IA.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4 — صعب</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب</span>
+                            <p><strong>اختبار قابلية استخدام بمراقبة الفيديو</strong></p>
+                            <p>قياس الوقت لاكمال checkout.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5 — صعب جدًا</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب جدًا</span>
+                            <p><strong>تحليل Funnels في Analytics مع اقتراح تغييرات</strong></p>
+                            <p>على flow بناءً على البيانات.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Research Section -->
+    <section id="ui-research" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Research techniques in UI</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="mb-4">أبحاث الـ UI تركّز على الجوانب المرئية والتفاعلية: أي الأدلة البصرية تعمل؟ ما اللون/تقابل الخط/أيقونة المناسب؟ كيف تؤثر الحركات الدقيقة على الفهم؟</p>
+                            
+                            <h4 class="mb-3">تقنيات شائعة</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Visual benchmarking / moodboards</li>
+                                        <li>Design audits / UI inventory</li>
+                                        <li>Preference testing</li>
+                                        <li>Micro-interaction testing</li>
+                                        <li>Accessibility audit (contrast, keyboard navigation)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>A/B tests على عناصر بصرية (CTA color, hero image)</li>
+                                        <li>Click tests / first-click testing</li>
+                                        <li>Prototype testing focusing on microcopy and visuals</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-3">
+                                <i class="fas fa-info-circle ms-2"></i>
+                                <strong>نصيحة:</strong> بيانات الـ UI غالبًا تحتاج أن تُترجم لفرضيات قابلة للاختبار من ناحية الـ UX — يعني شوف الاختلافات البصرية وتأثيرها فعلًا على السلوك.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mt-5 mb-4" data-aos="fade-up">5 أمثلة توضيحية</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1 — سهل</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-easy">سهل</span>
+                            <p><strong>عمل moodboard لصفحة الهبوط</strong></p>
+                            <p>جمع اتجاهات بصرية.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2 — سهل-متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">سهل-متوسط</span>
+                            <p><strong>preference test بين 2 ستايلات لزر CTA</strong></p>
+                            <p>(شكل/لون).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3 — متوسط</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-medium">متوسط</span>
+                            <p><strong>عمل UI audit لاكتشاف تباينات</strong></p>
+                            <p>في spacing وأسماء components.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4 — صعب</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب</span>
+                            <p><strong>اختبار تأثير توقيت الحركة (animation duration)</strong></p>
+                            <p>على فهم المستخدم لنتيجة فعل ما.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5 — صعب جدًا</h5>
+                        </div>
+                        <div class="example-body">
+                            <span class="difficulty-badge difficulty-hard">صعب جدًا</span>
+                            <p><strong>تنفيذ A/B لفحص تأثير تغيير أيقونة</strong></p>
+                            <p>على معدل التحويل (conversion).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Section -->
+    <section id="collaboration" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">How do UX & UI Designers work together?</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="mb-4">النقطة الأساسية: الشغل بينهم iterative ومتصل — UX يختبر ويحدد الحاجة، UI ينفّذ بصريًا، وبعدين بيرجعوا يعدّلوا معًا على نتائج الاختبارات.</p>
+                            
+                            <h4 class="mb-3">سير العمل نموذجيًا</h4>
+                            <ol>
+                                <li><strong>المرحلة البحثية:</strong> UX يجمع بيانات، Personas، user journeys.</li>
+                                <li><strong>تصميم الهيكل:</strong> UX يعمل wireframes ويعرف الـ flow.</li>
+                                <li><strong>المرئيات:</strong> UI يبدأ بتحويل wireframes لـ high-fidelity screens.</li>
+                                <li><strong>بروتوتايب واختبار:</strong> يشتغلوا سوا على بروتوتايب للاختبار.</li>
+                                <li><strong>مراجعة وتكرار:</strong> بعد الاختبارات، يقترح UX تغييرات بناءً على السلوك والملاحظات، وUI ينفّذها بصريًا.</li>
+                                <li><strong>التسليم والتنفيذ:</strong> handoff للمطورين مع توضيحات.</li>
+                                <li><strong>ما بعد الإطلاق:</strong> يتابعوا الـ metrics ويعملوا تحسينات.</li>
+                            </ol>
+                            
+                            <h4 class="mb-3 mt-4">أفضل ممارسات للتعاون</h4>
+                            <ul>
+                                <li>استخدام نفس أدوات التصميم (مثلاً Figma) للعمل المشترك.</li>
+                                <li>وجود Design System موحّد.</li>
+                                <li>اجتماعات دورية (design critiques).</li>
+                                <li>ضغط واضح على الـ acceptance criteria قبل التسليم.</li>
+                                <li>مشاركة النتائج والأدلة من البحث بوضوح.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mt-5 mb-4" data-aos="fade-up">5 أمثلة عملية للتعاون</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1</h5>
+                        </div>
+                        <div class="example-body">
+                            <p><strong>UX:</strong> wireframe لصفحة تسجيل</p>
+                            <p><strong>UI:</strong> تصميم نهائي + states</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2</h5>
+                        </div>
+                        <div class="example-body">
+                            <p><strong>UX:</strong> يكتشف مشكلة في findability</p>
+                            <p><strong>UI:</strong> يعيد تصميم الـ navbar بصريًا</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3</h5>
+                        </div>
+                        <div class="example-body">
+                            <p><strong>UX:</strong> يقترح اختبار A/B لسترة CTA</p>
+                            <p><strong>UI:</strong> يصمم نسختين للاختبار</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4</h5>
+                        </div>
+                        <div class="example-body">
+                            <p><strong>UX & UI:</strong> تحليل feedback من usability test معًا</p>
+                            <p>وتوزيع مهام التعديل</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5</h5>
+                        </div>
+                        <div class="example-body">
+                            <p><strong>UX:</strong> يحدد محتوى مساعد (microcopy)</p>
+                            <p><strong>UI:</strong> يضعه في أماكن مرئية ويعدّل المسافات</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disadvantages Section -->
+    <section id="disadvantages" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Disadvantages if combining UI & UX</h2>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="mb-4">ملاحظة: في شركات صغيرة دايماً المصمم الواحد بيغطي الاتنين، وده له مزايا بس كمان عيوب مهمة.</p>
+                            
+                            <h4 class="mb-3">المشاكل المحتملة</h4>
+                            <ul>
+                                <li><strong>سطحية في البحث:</strong> الشخص ممكن يكون قوي بصريًا لكن يضحّي ببحث UX عميق.</li>
+                                <li><strong>تحيّز التأكيد (confirmation bias):</strong> المصمم اللي صمّم الحل قد يرفض نقده ويبرّر الفرضيات.</li>
+                                <li><strong>إرهاق وتشتت:</strong> عبء العمل كبير — بيقلل الجودة.</li>
+                                <li><strong>بطء في التخصص والتعلم:</strong> يصعب التعمق في مهارتين مختلفتين بعمق.</li>
+                                <li><strong>اختلاف أولويات:</strong> إصلاح تجربة قد يتعارض مع جمال بصري أو العكس.</li>
+                                <li><strong>خطر فقدان التحقق العلمي:</strong> قلة اختبارات المستخدمين والكميات الكافية.</li>
+                                <li><strong>مشاكل scalability:</strong> مع نمو المنتج، صعب لشخص واحد يدير نظام تصميم وبحوث مستمرة.</li>
+                            </ul>
+                            
+                            <h4 class="mb-3 mt-4">كيفية التخفيف</h4>
+                            <ul>
+                                <li>اعتماد منهجية مبنية على بيانات صارمة.</li>
+                                <li>تخصيص وقت ثابت للـ research.</li>
+                                <li>مشاركة النتائج مع فرق خارجية (stakeholders).</li>
+                                <li>استخدام قوالب ومختصين عند الحاجة (مثلاً مختبر للاختبارات).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-center mt-5 mb-4" data-aos="fade-up">5 أمثلة على مشاكل واقعية</h3>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 1</h5>
+                        </div>
+                        <div class="example-body">
+                            <p>مصمم عمل واجهة جميلة لكن المستخدمين محتارين مش لاقيين زر مهم — المشكلة: قلة اختبارات الاستخدام.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 2</h5>
+                        </div>
+                        <div class="example-body">
+                            <p>تغيير بصري يربك تجربة الإتمام (checkout) ولم يتم قياس conversion قبل التغيير.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 3</h5>
+                        </div>
+                        <div class="example-body">
+                            <p>تعارض بين رغبة العميل في جمال بصري وزيادة النص للتعليمات التي تحتاجها الـ UX.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 4</h5>
+                        </div>
+                        <div class="example-body">
+                            <p>عدم وجود Documentation لنظام التصميم — يجعل التطوير مرهقًا.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h5 class="mb-0">مثال 5</h5>
+                        </div>
+                        <div class="example-body">
+                            <p>المصمم يصرّ على animation معقدة تؤثر على الأداء على أجهزة ضعيفة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principles" class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">المبادئ الرئيسية في UI و UX</h2>
+            
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">The 7 key principles to focus on UI</h4>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li><strong>الوضوح (Clarity)</strong> — كل شيء لازم يبقى مفهوم بسرعة.
+                                    <p class="mb-3">مثال: لون زر واضح ووصف وظيفته.</p>
+                                </li>
+                                <li><strong>الاتساق (Consistency)</strong> — استعمال نفس الأنماط عبر المنتج.
+                                    <p class="mb-3">مثال: نفس شكل الأزرار في كل الصفحات.</p>
+                                </li>
+                                <li><strong>الهرمية البصرية (Visual hierarchy)</strong> — ترتيب العناصر حسب الأهمية.
+                                    <p class="mb-3">مثال: العنوان الأكبر، ثم النص، ثم CTA.</p>
+                                </li>
+                                <li><strong>المتعة والبساطة (Simplicity & Minimalism)</strong> — قلل العناصر غير الضرورية.
+                                    <p class="mb-3">مثال: صفحة هبوط نظيفة بدون تشتيت.</p>
+                                </li>
+                                <li><strong>قابلية الوصول (Accessibility)</strong> — ألوان، قياسات خط، تسلسل تابي (tab order).
+                                    <p class="mb-3">مثال: تباين كافٍ للنص بالنسبة للخلفية.</p>
+                                </li>
+                                <li><strong>الاستجابة البصرية والتغذية الراجعة (Feedback & Affordance)</strong> — المستخدم لازم يعرف نتيجة تصرفه فورًا.
+                                    <p class="mb-3">مثال: تغيير لون الزر بعد الضغط + رسالة تأكيد.</p>
+                                </li>
+                                <li><strong>التفاصيل والتكرار (Microinteractions & Details)</strong> — الحركات الصغيرة التي تعزز الفهم.
+                                    <p class="mb-3">مثال: إيماءة بسيطة عند إضافة منتج للسلة.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">The 7 key principles to focus on UX</h4>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li><strong>المنفعة (Usefulness / Value)</strong> — هل التصميم يحل مشكلة فعلًا؟</li>
+                                <li><strong>سهولة الاستخدام (Usability)</strong> — هل الناس يقدروا ينجزوا مهامهم بكفاءة؟</li>
+                                <li><strong>الفاعلية (Findability)</strong> — هل يقدر المستخدم يلاقي اللي يدور عليه بسهولة؟</li>
+                                <li><strong>التحمل (Accessibility)</strong> — مناسب لكل المستخدمين (مع وبدون إعاقات).</li>
+                                <li><strong>الموثوقية والمصداقية (Credibility)</strong> — هل المستخدم يثق في المنتج؟</li>
+                                <li><strong>الرغبة (Desirability)</strong> — هل التجربة ممتعة وتشجع الاستخدام؟</li>
+                                <li><strong>القابلية للقياس/التكيّف (Measureability & Scalability)</strong> — هل تقدر تقيس نجاحها وتطورها؟</li>
+                            </ol>
+                            
+                            <div class="alert alert-primary mt-3">
+                                <i class="fas fa-lightbulb ms-2"></i>
+                                <strong>5 أمثلة تطبيقية (UX):</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>تبسيط عملية التسجيل برقم هاتف بدل نموذج طويل.</li>
+                                    <li>إضافة شريط بحث بارز لصفحة محتوى كثيفة.</li>
+                                    <li>تحسين المعلومات المعروضة في صفحة المنتج لجعل القرار أسهل.</li>
+                                    <li>إعادة تصميم الـ information architecture بعد تحليل بيانات البحث.</li>
+                                    <li>تنفيذ نظام توصيات شخصي بناءً على سلوك المستخدم لتحسين القيمة.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">10 اختبارات وأسئلة اختيار من متعدد</h2>
+            <p class="text-center mb-5" data-aos="fade-up">للتأكد من فهمك للمحتوى</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="quiz-container" data-aos="fade-up">
+                        <div id="quiz-content">
+                            <!-- Quiz content will be dynamically generated -->
+                        </div>
+                        
+                        <div class="quiz-navigation">
+                            <button id="prev-btn" class="btn btn-outline-primary" disabled>
+                                <i class="fas fa-arrow-right me-2"></i> السابق
+                            </button>
+                            <span id="question-counter">1 / 10</span>
+                            <button id="next-btn" class="btn btn-primary">
+                                التالي <i class="fas fa-arrow-left ms-2"></i>
+                            </button>
+                        </div>
+                        
+                        <div id="quiz-result" class="quiz-result">
+                            <div class="result-score" id="score-display">0/10</div>
+                            <h3>نتيجة الاختبار</h3>
+                            <p id="result-message"></p>
+                            <button id="restart-quiz" class="btn btn-primary mt-3">
+                                إعادة الاختبار <i class="fas fa-redo ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Topics Section -->
+    <section class="section-padding bg-light-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">العناوين الرئيسية للبحث أكثر</h2>
+            <p class="text-center mb-5" data-aos="fade-up">للحصول على معلومات أكثر</p>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h5 class="card-title">Design Systems & Design Tokens</h5>
+                            <p class="card-text">أمثلة عمليّة + كيفية بنائها</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-universal-access"></i>
+                            </div>
+                            <h5 class="card-title">WCAG Accessibility Standards</h5>
+                            <p class="card-text">المستوى AA و AAA (مع أمثلة)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <h5 class="card-title">Information Architecture</h5>
+                            <p class="card-text">Card Sorting methods</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <h5 class="card-title">Usability Testing</h5>
+                            <p class="card-text">moderated vs unmoderated + script templates</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">Quantitative vs Qualitative research</h5>
+                            <p class="card-text">أدوات ومتى تستخدم كل واحد</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-hand-pointer"></i>
+                            </div>
+                            <h5 class="card-title">Interaction Design</h5>
+                            <p class="card-text">Microinteractions (Principles + Tools)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h5 class="card-title">Prototyping fidelity</h5>
+                            <p class="card-text">low → high and when to use each</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <h5 class="card-title">Heuristic Evaluation</h5>
+                            <p class="card-text">Nielsen's heuristics بالتفصيل</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="900">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5 class="card-title">DesignOps</h5>
+                            <p class="card-text">عمليات التصميم والتعاون مع الهندسة</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h5 class="card-title">Analytics for designers</h5>
+                            <p class="card-text">funnels, retention, event tracking</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h5 class="card-title">A/B testing best practices</h5>
+                            <p class="card-text">interpretation of results</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h5 class="card-title">Motion design</h5>
+                            <p class="card-text">accessibility & performance</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1300">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h5 class="card-title">Ethics in UX</h5>
+                            <p class="card-text">dark patterns avoidance، privacy by design</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h5 class="card-title">Front-end handoff</h5>
+                            <p class="card-text">tokens → CSS → component libraries</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="1500">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <h5 class="card-title">Career paths</h5>
+                            <p class="card-text">from generalist to specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="footer-title">Ahmed Tawheed</h3>
+                    <p>موقع تفاعلي متخصص في تصميم واجهات المستخدم وتجربة المستخدم (UI/UX) لتقديم محتوى تعليمي احترافي.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">روابط سريعة</h5>
+                    <a href="#intro" class="footer-link">مقدمة</a>
+                    <a href="#ui-designer" class="footer-link">مصمم UI</a>
+                    <a href="#ux-designer" class="footer-link">مصمم UX</a>
+                    <a href="#ux-research" class="footer-link">بحث UX</a>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">أقسام الموقع</h5>
+                    <a href="#ui-research" class="footer-link">بحث UI</a>
+                    <a href="#collaboration" class="footer-link">التعاون</a>
+                    <a href="#disadvantages" class="footer-link">عيوب الدمج</a>
+                    <a href="#principles" class="footer-link">المبادئ</a>
+                </div>
+                
+                <!-- <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">تابعنا</h5>
+                    <p>اشترك في نشرتنا البريدية للحصول على أحدث المقالات والمصادر في مجال تصميم UI/UX.</p>
+                    <div class="input-group mt-3">
+                        <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
+                        <button class="btn btn-light" type="button">اشترك</button>
+                    </div>
+                </div>
+            </div> -->
+            
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Ahmed Tawheed. جميع الحقوق محفوظة.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="../lec_3/w1.html" class="next-site-btn">
+                        الانتقال للموقع التالي <i class="fas fa-arrow-left ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        // Quiz data
+        const quizData = [
+            {
+                question: "أي من التالي يُعد مسؤولية أساسية لمصمم UI؟",
+                options: [
+                    "إجراء مقابلات المستخدمين",
+                    "إنشاء high-fidelity mockups",
+                    "كتابة كود السيرفر",
+                    "تحليل funnel في Google Analytics"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "أي تقنية بحث تُستخدم لمعرفة كيف يصنف المستخدمون المحتوى بشكل طبيعي؟",
+                options: [
+                    "Tree testing",
+                    "Card sorting",
+                    "A/B testing",
+                    "Heatmaps"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "ما هو الخطر الأساسي من دمج دور الـ UI والـ UX في شخص واحد؟",
+                options: [
+                    "تقليل التناسق البصري",
+                    "زيادة التخصص في كل مجال",
+                    "تحيّز التأكيد وقلة البحث العميق",
+                    "تحسين سرعة التسليم دائمًا"
+                ],
+                correctAnswer: 2
+            },
+            {
+                question: "أي مبدأ من مبادئ UI يتعلق بتوفير ملاحظات فورية للمستخدم؟",
+                options: [
+                    "Consistency",
+                    "Affordance & Feedback",
+                    "Minimalism",
+                    "Typography"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "ما الفرق الأساسي بين الـ Usability و الـ Usefulness؟",
+                options: [
+                    "لا فرق، هما نفس الحاجة",
+                    "Usability = سهولة التنفيذ؛ Usefulness = هل يحل المنتج مشكلة فعلًا",
+                    "Usefulness = الألوان المستخدمة في الواجهة",
+                    "Usability = مدى جمال التصميم"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "أي أداة تُعد مفيدة للتعاون بين UI و UX على نفس الملفات؟",
+                options: [
+                    "Figma",
+                    "Photoshop فقط كملف منفصل",
+                    "Excel",
+                    "Terminal"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "أي من التالي يُستخدم لقياس أماكن الضغط الأكثر على صفحة؟",
+                options: [
+                    "Session recordings",
+                    "Tree testing",
+                    "Card sorting",
+                    "Personas"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "عند تصميم زر CTA، أي خيار يُعتبر جزءًا من البحث الخاص بالـ UI؟",
+                options: [
+                    "Preference testing بين لونين للزر",
+                    "Writing server-side API",
+                    "Building personas",
+                    "Setting up analytics only"
+                ],
+                correctAnswer: 0
+            },
+            {
+                question: "ما الذي يُعينه مصمم UX عادةً قبل تصميم الشاشات؟",
+                options: [
+                    "اختيار الخطوط فقط",
+                    "عمل wireframes وuser flows",
+                    "كتابة CSS",
+                    "تصميم اللوغو"
+                ],
+                correctAnswer: 1
+            },
+            {
+                question: "أي مقياس يُستخدم لقياس نجاح تجربة المستخدم؟",
+                options: [
+                    "Conversion rate",
+                    "Pixel density",
+                    "File size of images",
+                    "Number of colors used"
+                ],
+                correctAnswer: 0
+            }
+        ];
+        
+        // Quiz variables
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = [];
+        
+        // DOM elements
+        const quizContent = document.getElementById('quiz-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const questionCounter = document.getElementById('question-counter');
+        const quizResult = document.getElementById('quiz-result');
+        const scoreDisplay = document.getElementById('score-display');
+        const resultMessage = document.getElementById('result-message');
+        const restartQuizBtn = document.getElementById('restart-quiz');
+        
+        // Initialize quiz
+        function initQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            quizResult.style.display = 'none';
+            quizContent.style.display = 'block';
+            showQuestion();
+            updateButtons();
+        }
+        
+        // Show current question
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            let optionsHTML = '';
+            
+            question.options.forEach((option, index) => {
+                optionsHTML += `
+                    <div class="quiz-option" data-index="${index}">
+                        ${String.fromCharCode(65 + index)}) ${option}
+                    </div>
+                `;
+            });
+            
+            quizContent.innerHTML = `
+                <div class="quiz-question">${currentQuestion + 1}. ${question.question}</div>
+                <div class="quiz-options">
+                    ${optionsHTML}
+                </div>
+            `;
+            
+            // Add click event to options
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.quiz-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Store user answer
+                    userAnswers[currentQuestion] = parseInt(this.dataset.index);
+                });
+            });
+            
+            // Restore previous answer if exists
+            if (userAnswers[currentQuestion] !== undefined) {
+                document.querySelectorAll('.quiz-option')[userAnswers[currentQuestion]].classList.add('selected');
+            }
+            
+            // Update question counter
+            questionCounter.textContent = `${currentQuestion + 1} / ${quizData.length}`;
+        }
+        
+        // Update navigation buttons
+        function updateButtons() {
+            prevBtn.disabled = currentQuestion === 0;
+            
+            if (currentQuestion === quizData.length - 1) {
+                nextBtn.innerHTML = 'إنهاء الاختبار <i class="fas fa-check ms-2"></i>';
+            } else {
+                nextBtn.innerHTML = 'التالي <i class="fas fa-arrow-left ms-2"></i>';
+            }
+        }
+        
+        // Show quiz results
+        function showResults() {
+            quizContent.style.display = 'none';
+            quizResult.style.display = 'block';
+            
+            // Calculate score
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizData[index].correctAnswer) {
+                    score++;
+                }
+            });
+            
+            // Display score
+            scoreDisplay.textContent = `${score} / ${quizData.length}`;
+            
+            // Display message based on score
+            let message = '';
+            if (score >= 8) {
+                message = 'ممتاز! لديك فهم عميق لأدوار المصممين وعلاقتهم ببعض.';
+            } else if (score >= 6) {
+                message = 'جيد جداً! لديك معرفة جيدة ولكن يمكنك تحسينها في بعض المجالات.';
+            } else if (score >= 4) {
+                message = 'متوسط. تحتاج إلى المزيد من التعلم في مجال أدوار المصممين وتقنيات البحث.';
+            } else {
+                message = 'مبتدئ. نوصي بدراسة المواد المقدمة في الموقع بشكل أعمق.';
+            }
+            
+            resultMessage.textContent = message;
+        }
+        
+        // Event listeners
+        prevBtn.addEventListener('click', function() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+                updateButtons();
+            }
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                updateButtons();
+            } else {
+                showResults();
+            }
+        });
+        
+        restartQuizBtn.addEventListener('click', initQuiz);
+        
+        // Initialize quiz on page load
+        initQuiz();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
